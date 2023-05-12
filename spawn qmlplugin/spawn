@@ -1,0 +1,2 @@
+#whereis qmlplugindump
+/home/tenerome/Qt/5.15.2/gcc_64/bin/qmlplugindump --nonrelocatable FluentUI 1.0 ./package > ./package/FluentUI/plugin.qmltypes
