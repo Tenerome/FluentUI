@@ -2,10 +2,10 @@
 import FluentUI 1.0
 
 QtObject {
-    readonly property string key : FluApp.uuid()
-    readonly property int flag : 0
+    readonly property string key: FluApp.uuid()
+    readonly property int flag: 0
     property string title
-    property int order : 0
+    property int order: 0
     property int icon
     property Component cusIcon
     property bool recentlyAdded: false
@@ -16,4 +16,7 @@ QtObject {
     property int idx
     signal tap
     property var tapFunc
+    //modify Tenerome
+    property var temp_id
+    signal doubleClick
 }
