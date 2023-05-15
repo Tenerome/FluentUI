@@ -18,10 +18,10 @@ FluObject {
             height: 18
         }
         onTap: {
+            //            navigationView.pop()
             navigationView.push("qrc:/T_Home.qml")
         }
     }
-
     FluPaneItemExpander {
         title: lang.basic_input
         icon: FluentIcons.CheckboxComposite
@@ -33,8 +33,8 @@ FluObject {
             onTap: {
                 navigationView.push("qrc:/T_Buttons.qml")
             }
-            onDoubleClick: {
-                console.log("succeed")
+            onRclicked: {
+                console.log("rclicked")
             }
         }
         FluPaneItem {

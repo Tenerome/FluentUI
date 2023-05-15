@@ -12,7 +12,6 @@ Item {
         Minimal,
         Auto
     }
-
     property url logo
     property string title: ""
     property FluObject items
@@ -357,30 +356,33 @@ Item {
                     hoverEnabled: true
                     anchors.fill: parent
                     //modify Tenerome
-                    onDoubleClicked: {
-                        model.doubleClick()
-                    }
+                    acceptedButtons: Qt.RightButton | Qt.LeftButton
                     onClicked: {
-                        if (type === 0) {
-                            if (model.tapFunc) {
-                                model.tapFunc()
-                            } else {
-                                nav_list.currentIndex = idx
-                                layout_footer.currentIndex = -1
-                                if (d.isMinimal || d.isCompact) {
-                                    d.enableNavigationPanel = false
-                                }
-                            }
+                        if (mouse.button === Qt.RightButton) {
+                            model.rclicked()
                         } else {
-                            if (model.tapFunc) {
-                                model.tapFunc()
+                            if (type === 0) {
+                                if (model.tapFunc) {
+                                    model.tapFunc()
+                                } else {
+                                    nav_list.currentIndex = idx
+                                    layout_footer.currentIndex = -1
+                                    if (d.isMinimal || d.isCompact) {
+                                        d.enableNavigationPanel = false
+                                    }
+                                }
                             } else {
-                                model.tap()
-                                d.stackItems.push(model)
-                                nav_list.currentIndex = nav_list.count - layout_footer.count + idx
-                                layout_footer.currentIndex = idx
-                                if (d.isMinimal || d.isCompact) {
-                                    d.enableNavigationPanel = false
+                                if (model.tapFunc) {
+                                    model.tapFunc()
+                                } else {
+                                    model.tap()
+                                    d.stackItems.push(model)
+                                    nav_list.currentIndex = nav_list.count
+                                            - layout_footer.count + idx
+                                    layout_footer.currentIndex = idx
+                                    if (d.isMinimal || d.isCompact) {
+                                        d.enableNavigationPanel = false
+                                    }
                                 }
                             }
                         }
@@ -926,7 +928,6 @@ Item {
     function push(url) {
         nav_swipe.push(url)
     }
-
     function getCurrentIndex() {
         return nav_list.currentIndex
     }

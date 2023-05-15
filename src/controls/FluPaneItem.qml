@@ -18,5 +18,5 @@ QtObject {
     property var tapFunc
     //modify Tenerome
     property var temp_id
-    signal doubleClick
+    signal rclicked
 }
